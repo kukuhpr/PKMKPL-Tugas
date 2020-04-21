@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <title>To-Do lists</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 align="center" style="margin-top: 30px;">Your To-Do list</h1>
+        <table id="id_todo_table" border="1" align="center">
+            <tr>
+                <td>1. Diem Dirumah</td>
+            </tr>
+            <tr>
+                <td>2. Makan</td>
+            </tr>
+            <tr>
+                <td>3. Tidur</td>
+            </tr>
+            <tr>
+                <td>4. Ngerjain Tugas Tanpa Livestream</td>
+            </tr>
+            <tr>
+                <td>5. Makin Makin</td>
+            </tr>
+        </table>
+    </div>
+    <hr align="center" width="100%">
+    <form method="POST" align="center">
+        <input name="item_text" id="id_new_item" placeholder="Enter a to-do item" />
+        {% csrf_token %}
+    </form>
+
+    <table id="id_list_table">
+        {% for item in items %}
+        <tr>
+            <td>{{ forloop.counter }}: {{ item.text }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    </container>
+
+
+</body>
+
+</html>
